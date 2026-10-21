@@ -121,7 +121,7 @@ renderChips();
 fetch('./pages.json', {cache: 'no-store'})
   .then(r => r.json())
   .then(data => {
-    pages = data.slice().sort((a, b) => b.date.localeCompare(a.date));
+    pages = data.map((p, i) => ({...p, _i: i})).sort((a, b) => b.date.localeCompare(a.date) || b._i - a._i);
     render();
   })
   .catch(() => {
