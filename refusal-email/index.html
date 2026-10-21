@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>거절·독촉 메일 프롬프트 5개 · AI 선배</title>
+<meta name="description" content="기분 안 상하게 거절하고, 부드럽게 독촉하는 메일 프롬프트 5개">
+<meta property="og:title" content="거절·독촉 메일 프롬프트 5개 · AI 선배">
+<meta property="og:description" content="기분 안 상하게 거절하고, 부드럽게 독촉하는 메일 프롬프트 5개">
+<meta property="og:locale" content="ko_KR">
+<meta name="theme-color" content="#0F1B3D">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --navy:#0F1B3D; --navy2:#1A2A57; --lime:#C8F542;
+    --bg:#F4F6FA; --card:#FFFFFF; --text:#0F1B3D; --sub:#5A6480;
+    --box:#EEF0F4; --line:#DDE1EA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+  header{background:var(--navy);color:#fff;padding:36px 20px 32px}
+  .wrap{max-width:640px;margin:0 auto}
+  .tag{display:inline-block;background:var(--lime);color:var(--navy);font-weight:800;font-size:13px;
+    padding:4px 10px;border-radius:6px;margin-bottom:14px}
+  h1{font-size:28px;font-weight:900;line-height:1.3;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--lime)}
+  header p{margin-top:10px;color:#C9D1E6;font-size:15px}
+  .how{background:var(--navy2);border-radius:12px;padding:14px 16px;margin-top:20px;font-size:14px;color:#E3E8F5}
+  .how b{color:var(--lime)}
+  main{padding:24px 16px 40px}
+  .card{background:var(--card);border-radius:16px;padding:20px 18px;margin-bottom:16px;
+    box-shadow:0 1px 3px rgba(15,27,61,.06)}
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--navy);color:var(--lime);
+    font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center}
+  h2{font-size:18px;font-weight:800;letter-spacing:-.3px}
+  pre{background:var(--box);border-radius:10px;padding:14px;font-family:inherit;font-size:15px;
+    white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;color:var(--text)}
+  .ph{background:var(--lime);color:var(--navy);font-weight:700;border-radius:4px;padding:0 3px}
+  .copy{margin-top:12px;width:100%;border:0;border-radius:10px;padding:14px;font-family:inherit;
+    font-size:16px;font-weight:800;background:var(--navy);color:#fff;cursor:pointer;transition:background .15s}
+  .copy:active{transform:scale(.99)}
+  .copy.done{background:var(--lime);color:var(--navy)}
+  .tip{font-size:14px;color:var(--sub);margin-top:8px}
+  footer{text-align:center;padding:8px 20px 48px;color:var(--sub);font-size:14px}
+  .follow{display:inline-block;margin-top:12px;background:var(--navy);color:var(--lime);text-decoration:none;
+    font-weight:800;padding:12px 22px;border-radius:999px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="tag">AI 선배 · 거절·독촉 메일 편</span>
+    <h1>거절도 독촉도,<br><em>기분 안 상하게</em></h1>
+    <p>보내기 버튼 앞에서 망설일 때 꺼내 쓰세요.</p>
+    <div class="how"><b>쓰는 법</b> — 복사 버튼을 누르고 ChatGPT·클로드에 붙여넣은 뒤, <span class="ph">[ ]</span> 부분만 내 내용으로 바꾸세요.</div>
+  </div>
+</header>
+
+<main class="wrap" id="list"></main>
+
+<footer>
+  매일 아침, 퇴근 당겨주는 AI 활용법<br>
+  <a class="follow" href="https://www.instagram.com/ai.sunbae/">@ai.sunbae 팔로우</a>
+</footer>
+
+<script>
+const prompts = [
+  { title: "요청을 정중하게 거절할 때", text:
+`아래 요청을 거절하는 메일을 써줘.
+받는 사람: [상대와의 관계]
+거절 이유: [이유]
+대안: [가능한 대안, 없으면 '없음']
+사과는 한 번만, 핑계처럼 길게 쓰지 마.
+[받은 요청 내용]` },
+  { title: "'지금은 어려워요' 일정 미루는 답장", text:
+`아래 요청에 지금은 어렵다고
+답하는 메일을 써줘.
+가능한 시점: [날짜]
+그 전에 할 수 있는 것: [있으면 적기]
+마지막에 이 일정이 괜찮은지 물어봐줘.
+[받은 요청 내용]` },
+  { title: "답장이 없을 때, 첫 번째 리마인드", text:
+`아래 건의 회신을 요청하는 메일을 써줘.
+처음 보내는 리마인드야.
+재촉하는 느낌 없이 짧게,
+회신이 필요한 날짜는 분명하게.
+회신 필요일: [날짜]
+[이전에 보낸 메일 내용]` },
+  { title: "두 번째 독촉, 단호하지만 정중하게", text:
+`같은 건으로 두 번째 보내는 메일을 써줘.
+마감이 가까워 회신이 꼭 필요해.
+늦어지면 생기는 일: [영향]
+감정은 빼고 사실 위주로,
+상대가 할 일을 한 줄로 정리해줘.
+[지난 메일과 마감일]` },
+  { title: "보내기 전, 톤 점검 한 번 더", text:
+`아래 메일을 받는 사람 입장에서 읽어줘.
+기분 상할 수 있는 표현을 찾아서
+이유와 함께 알려줘.
+고친 문장도 하나씩 제안해줘.
+[보낼 메일]` }
+];
+
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const list = document.getElementById('list');
+
+prompts.forEach((p, i) => {
+  const card = document.createElement('section');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-head"><div class="num">#${i+1}</div><h2>${esc(p.title)}</h2></div>
+    <pre>${esc(p.text).replace(/\[[^\]]+\]/g, m => `<span class="ph">${m}</span>`)}</pre>
+    <button class="copy" type="button">복사하기</button>`;
+  card.querySelector('.copy').addEventListener('click', e => copy(p.text, e.currentTarget));
+  list.appendChild(card);
+});
+
+async function copy(text, btn){
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch(_) {}
+  if (!ok) {
+    // 인스타그램 앱 내 브라우저 등 clipboard API가 막힌 환경용
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, text.length);
+    try { ok = document.execCommand('copy'); } catch(_) {}
+    document.body.removeChild(ta);
+  }
+  btn.textContent = ok ? '복사됐어요 ✓' : '길게 눌러 직접 복사해주세요';
+  btn.classList.toggle('done', ok);
+  setTimeout(() => { btn.textContent = '복사하기'; btn.classList.remove('done'); }, 1800);
+}
+</script>
+</body>
+</html>
