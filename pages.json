@@ -14,5 +14,13 @@
     "title": "거절도 독촉도 부드럽게",
     "desc": "기분 안 상하게 쓰는 메일 프롬프트",
     "count": 5
+  },
+  {
+    "slug": "notice-before-after",
+    "date": "2026-10-23",
+    "corner": "Before/After",
+    "title": "공지는 한눈에 읽혀야죠",
+    "desc": "안 읽히는 사내 공지 정리 프롬프트",
+    "count": 4
   }
 ]
