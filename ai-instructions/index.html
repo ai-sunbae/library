@@ -30,7 +30,11 @@
   .how{background:var(--navy2);border-radius:12px;padding:14px 16px;margin-top:20px;font-size:14px;color:#E3E8F5}
   .how b{color:var(--lime)}
   .how ul{list-style:none;margin-top:6px}
-  .how li{padding-left:2px}
+  .how li{display:flex;align-items:flex-start;gap:6px;margin-top:4px}
+  .how .app{margin-top:12px;font-weight:800;color:#fff}
+  .how .dev{flex:none;margin-top:2px;min-width:46px;font-size:12px;font-weight:700;color:var(--navy);
+    background:#C9D1E6;border-radius:5px;padding:0 6px;text-align:center}
+  .how .nb{white-space:nowrap}
   .how .note{display:block;margin-top:6px;color:#AEB6CC;font-size:13px}
   main{padding:24px 16px 40px}
   .card{background:var(--card);border-radius:16px;padding:20px 18px;margin-bottom:16px;
@@ -63,11 +67,17 @@
     <h1>내가 쓰는 AI<br><em>똑똑하게</em> 만드는 설정법</h1>
     <p>지어낸 답은 줄이고, 자료 출처까지 함께 받아보세요.</p>
     <div class="how"><b>#1 넣는 곳</b> — 한 번 넣으면 모든 대화에 적용돼요.
+      <div class="app">챗GPT</div>
       <ul>
-        <li>챗GPT: 프로필 → 개인 맞춤 설정 → <span style="white-space:nowrap">사용자 지정 지침</span></li>
-        <li>클로드: 설정 → 프로필 → <span style="white-space:nowrap">개인 선호 사항</span></li>
+        <li><span class="dev">모바일</span><span>프로필 → 개인 맞춤 설정 → <span class="nb">사용자 지정 지침</span></span></li>
+        <li><span class="dev">PC</span><span>프로필 → 설정 → 개인 맞춤 설정 → <span class="nb">사용자 지정 지침</span></span></li>
       </ul>
-      <span class="note">챗GPT 메뉴의 이전 이름은 '맞춤형 지침'이에요.<br>클로드는 버전에 따라 'Claude 지침'으로 보일 수 있어요.</span>
+      <div class="app">클로드</div>
+      <ul>
+        <li><span class="dev">모바일</span><span>설정 → 프로필 → <span class="nb">개인 선호 사항</span></span></li>
+        <li><span class="dev">PC</span><span>프로필 → 설정 → 계정 → <span class="nb">Claude 지침</span></span></li>
+      </ul>
+      <span class="note">챗GPT 메뉴의 이전 이름은 '맞춤형 지침'이에요.</span>
     </div>
   </div>
 </header>
