@@ -24,14 +24,6 @@
     "count": 4
   },
   {
-    "slug": "excel-error",
-    "date": "2026-10-21",
-    "corner": "엑셀·PPT",
-    "title": "#N/A 떴다면, 복사 1번",
-    "desc": "에러 원인과 고친 수식까지 알려주는 프롬프트",
-    "count": 1
-  },
-  {
     "slug": "monday-ready",
     "date": "2026-10-22",
     "corner": "상황별 해결",
