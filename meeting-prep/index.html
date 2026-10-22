@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>회의 준비 프롬프트 5개 · AI 선배</title>
+<meta name="description" content="안건 정리부터 초대 메일, 전날 리마인드까지 회의 준비 프롬프트 5개">
+<meta property="og:title" content="회의 준비 프롬프트 5개 · AI 선배">
+<meta property="og:description" content="안건 정리부터 초대 메일, 전날 리마인드까지 회의 준비 프롬프트 5개">
+<meta property="og:locale" content="ko_KR">
+<meta name="theme-color" content="#0F1B3D">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --navy:#0F1B3D; --navy2:#1A2A57; --lime:#C8F542;
+    --bg:#F4F6FA; --card:#FFFFFF; --text:#0F1B3D; --sub:#5A6480;
+    --box:#EEF0F4; --line:#DDE1EA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+  header{background:var(--navy);color:#fff;padding:36px 20px 32px}
+  .wrap{max-width:640px;margin:0 auto}
+  .tag{display:inline-block;background:var(--lime);color:var(--navy);font-weight:800;font-size:13px;
+    padding:4px 10px;border-radius:6px;margin-bottom:14px}
+  h1{font-size:28px;font-weight:900;line-height:1.3;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--lime)}
+  header p{margin-top:10px;color:#C9D1E6;font-size:15px}
+  .how{background:var(--navy2);border-radius:12px;padding:14px 16px;margin-top:20px;font-size:14px;color:#E3E8F5}
+  .how b{color:var(--lime)}
+  main{padding:24px 16px 40px}
+  .card{background:var(--card);border-radius:16px;padding:20px 18px;margin-bottom:16px;
+    box-shadow:0 1px 3px rgba(15,27,61,.06)}
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--navy);color:var(--lime);
+    font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center}
+  h2{font-size:18px;font-weight:800;letter-spacing:-.3px}
+  pre{background:var(--box);border-radius:10px;padding:14px;font-family:inherit;font-size:15px;
+    white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;color:var(--text)}
+  .ph{background:var(--lime);color:var(--navy);font-weight:700;border-radius:4px;padding:0 3px}
+  .copy{margin-top:12px;width:100%;border:0;border-radius:10px;padding:14px;font-family:inherit;
+    font-size:16px;font-weight:800;background:var(--navy);color:#fff;cursor:pointer;transition:background .15s}
+  .copy:active{transform:scale(.99)}
+  .copy.done{background:var(--lime);color:var(--navy)}
+  .tip{font-size:14px;color:var(--sub);margin-top:8px}
+  footer{text-align:center;padding:8px 20px 48px;color:var(--sub);font-size:14px}
+  .follow{display:inline-block;margin-top:12px;background:var(--navy);color:var(--lime);text-decoration:none;
+    font-weight:800;padding:12px 22px;border-radius:999px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="tag">AI 선배 · 회의 준비 편</span>
+    <h1><em>회의</em> 준비,<br>복붙으로 끝</h1>
+    <p>안건 정리부터 초대 메일, 전날 리마인드까지.</p>
+    <div class="how"><b>쓰는 법</b> — 복사 버튼을 누르고 ChatGPT·클로드에 붙여넣은 뒤, <span class="ph">[ ]</span> 부분만 내 내용으로 바꾸세요.</div>
+  </div>
+</header>
+
+<main class="wrap" id="list"></main>
+
+<footer>
+  매일 아침, 퇴근 당겨주는 AI 활용법<br>
+  <a class="follow" href="https://www.instagram.com/ai.sunbae/">@ai.sunbae 팔로우</a>
+</footer>
+
+<script>
+const prompts = [
+  { title: "흩어진 메모로 안건 정리하기", text:
+`아래 메모로 회의 안건을 정리해줘.
+맨 위에 회의 목적 한 줄,
+그 아래 안건 3~5개와 안건별 예상 시간.
+결정이 필요한 안건은 따로 표시해줘.
+메모에 없는 내용은 지어내지 마.
+[회의 관련 메모]` },
+  { title: "필요한 것만 담은 회의 초대 메일", text:
+`아래 내용으로 회의 초대 메일을 써줘.
+일시·장소, 참석자, 안건을 넣고
+마지막에 참석 가능 여부를 물어봐줘.
+미리 볼 자료: [자료명, 없으면 '없음']
+[일시·장소 + 참석자 + 안건]` },
+  { title: "참석자별 준비할 것 나누기", text:
+`안건별로 누가 무엇을 준비해 오면 좋을지
+참석자별로 정리해줘.
+형식: 이름 / 준비할 것 / 관련 안건
+[안건 + 참석자와 역할]` },
+  { title: "시간 안에 끝날지 미리 점검하기", text:
+`이 안건을 정해진 시간 안에
+끝낼 수 있을지 점검해줘.
+넘칠 것 같으면 뺄 안건이나
+따로 논의할 안건을 제안해줘.
+회의 시간: [예: 30분]
+[정리한 안건]` },
+  { title: "회의 전날, 짧은 리마인드", text:
+`회의 전날 보낼 리마인드 메시지를 써줘.
+메신저용으로 3줄 이내,
+일시·장소와 준비할 것만 넣어줘.
+[초대 메일 내용]` }
+];
+
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const list = document.getElementById('list');
+
+prompts.forEach((p, i) => {
+  const card = document.createElement('section');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-head"><div class="num">#${i+1}</div><h2>${esc(p.title)}</h2></div>
+    <pre>${esc(p.text).replace(/\[[^\]]+\]/g, m => `<span class="ph">${m}</span>`)}</pre>
+    <button class="copy" type="button">복사하기</button>`;
+  card.querySelector('.copy').addEventListener('click', e => copy(p.text, e.currentTarget));
+  list.appendChild(card);
+});
+
+async function copy(text, btn){
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch(_) {}
+  if (!ok) {
+    // 인스타그램 앱 내 브라우저 등 clipboard API가 막힌 환경용
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, text.length);
+    try { ok = document.execCommand('copy'); } catch(_) {}
+    document.body.removeChild(ta);
+  }
+  btn.textContent = ok ? '복사됐어요 ✓' : '길게 눌러 직접 복사해주세요';
+  btn.classList.toggle('done', ok);
+  setTimeout(() => { btn.textContent = '복사하기'; btn.classList.remove('done'); }, 1800);
+}
+</script>
+</body>
+</html>
