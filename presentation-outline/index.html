@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>발표 목차 잡는 프롬프트 5개 · AI 선배</title>
+<meta name="description" content="갑자기 발표 자료 만들 때, 목차부터 잡는 프롬프트 5개">
+<meta property="og:title" content="발표 목차 잡는 프롬프트 5개 · AI 선배">
+<meta property="og:description" content="갑자기 발표 자료 만들 때, 목차부터 잡는 프롬프트 5개">
+<meta property="og:locale" content="ko_KR">
+<meta name="theme-color" content="#0F1B3D">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --navy:#0F1B3D; --navy2:#1A2A57; --lime:#C8F542;
+    --bg:#F4F6FA; --card:#FFFFFF; --text:#0F1B3D; --sub:#5A6480;
+    --box:#EEF0F4; --line:#DDE1EA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+  header{background:var(--navy);color:#fff;padding:36px 20px 32px}
+  .wrap{max-width:640px;margin:0 auto}
+  .tag{display:inline-block;background:var(--lime);color:var(--navy);font-weight:800;font-size:13px;
+    padding:4px 10px;border-radius:6px;margin-bottom:14px}
+  h1{font-size:28px;font-weight:900;line-height:1.3;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--lime)}
+  header p{margin-top:10px;color:#C9D1E6;font-size:15px}
+  .how{background:var(--navy2);border-radius:12px;padding:14px 16px;margin-top:20px;font-size:14px;color:#E3E8F5}
+  .how b{color:var(--lime)}
+  main{padding:24px 16px 40px}
+  .card{background:var(--card);border-radius:16px;padding:20px 18px;margin-bottom:16px;
+    box-shadow:0 1px 3px rgba(15,27,61,.06)}
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--navy);color:var(--lime);
+    font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center}
+  h2{font-size:18px;font-weight:800;letter-spacing:-.3px}
+  pre{background:var(--box);border-radius:10px;padding:14px;font-family:inherit;font-size:15px;
+    white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;color:var(--text)}
+  .ph{background:var(--lime);color:var(--navy);font-weight:700;border-radius:4px;padding:0 3px}
+  .copy{margin-top:12px;width:100%;border:0;border-radius:10px;padding:14px;font-family:inherit;
+    font-size:16px;font-weight:800;background:var(--navy);color:#fff;cursor:pointer;transition:background .15s}
+  .copy:active{transform:scale(.99)}
+  .copy.done{background:var(--lime);color:var(--navy)}
+  .tip{font-size:14px;color:var(--sub);margin-top:8px}
+  footer{text-align:center;padding:8px 20px 48px;color:var(--sub);font-size:14px}
+  .follow{display:inline-block;margin-top:12px;background:var(--navy);color:var(--lime);text-decoration:none;
+    font-weight:800;padding:12px 22px;border-radius:999px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="tag">AI 선배 · 발표 목차 편</span>
+    <h1>갑자기 잡힌 발표,<br><em>목차</em>부터 잡으세요</h1>
+    <p>가진 자료로 목차 뽑기부터 발표 전날 점검까지.</p>
+    <div class="how"><b>쓰는 법</b> — 복사 버튼을 누르고 ChatGPT·클로드에 붙여넣은 뒤, <span class="ph">[ ]</span> 부분만 내 내용으로 바꾸세요.</div>
+  </div>
+</header>
+
+<main class="wrap" id="list"></main>
+
+<footer>
+  매일 아침, 퇴근 당겨주는 AI 활용법<br>
+  <a class="follow" href="https://www.instagram.com/ai.sunbae/">@ai.sunbae 팔로우</a>
+</footer>
+
+<script>
+const prompts = [
+  { title: "가진 자료로 목차 뽑기", text:
+`아래 자료로 발표 목차를 잡아줘.
+발표 목적: [보고/설득/공유 중 하나]
+듣는 사람: [예: 팀장님, 타 부서]
+발표 시간: [예: 10분]
+장마다 제목과 핵심 한 줄만 써줘.
+자료에 없는 내용은 지어내지 마.
+[자료·메모 붙여넣기]` },
+  { title: "주제만 있을 때 질문부터 받기", text:
+`[발표 주제]로 발표를 준비해야 해.
+목차를 짜기 전에, 나한테
+꼭 확인해야 할 질문 5개를 해줘.
+내가 답하면 그걸로 목차를 잡아줘.
+내 답에 없는 내용은 지어내지 마.` },
+  { title: "듣는 사람 기준으로 순서 바꾸기", text:
+`아래 목차를 [듣는 사람] 입장에서 봐줘.
+결론이 먼저 보이게 순서를 다듬고,
+빼도 되는 장이 있으면
+이유와 함께 알려줘.
+[1번에서 만든 목차]` },
+  { title: "발표 시간에 맞춰 나누기", text:
+`발표 시간은 [예: 10분]이야.
+아래 목차로 장별 시간 배분표를 짜줘.
+열: 장 / 핵심 메시지 / 시간
+시간이 모자라면,
+줄일 장부터 알려줘.
+[목차]` },
+  { title: "예상 질문으로 빈틈 찾기", text:
+`아래 목차로 [듣는 사람]에게 발표해.
+나올 만한 질문 5개와,
+각 질문에 답하려면 어느 장에
+무엇을 보강할지 알려줘.
+목차는 다시 쓰지 말고 지적만 해줘.
+[완성된 목차]` }
+];
+
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const list = document.getElementById('list');
+
+prompts.forEach((p, i) => {
+  const card = document.createElement('section');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-head"><div class="num">#${i+1}</div><h2>${esc(p.title)}</h2></div>
+    <pre>${esc(p.text).replace(/\[[^\]]+\]/g, m => `<span class="ph">${m}</span>`)}</pre>
+    <button class="copy" type="button">복사하기</button>`;
+  card.querySelector('.copy').addEventListener('click', e => copy(p.text, e.currentTarget));
+  list.appendChild(card);
+});
+
+async function copy(text, btn){
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch(_) {}
+  if (!ok) {
+    // 인스타그램 앱 내 브라우저 등 clipboard API가 막힌 환경용
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, text.length);
+    try { ok = document.execCommand('copy'); } catch(_) {}
+    document.body.removeChild(ta);
+  }
+  btn.textContent = ok ? '복사됐어요 ✓' : '길게 눌러 직접 복사해주세요';
+  btn.classList.toggle('done', ok);
+  setTimeout(() => { btn.textContent = '복사하기'; btn.classList.remove('done'); }, 1800);
+}
+</script>
+</body>
+</html>
