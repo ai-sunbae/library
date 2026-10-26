@@ -86,5 +86,13 @@
     "title": "발표 자료, 목차부터 잡으세요",
     "desc": "발표 목차 잡고 점검하는 프롬프트",
     "count": 5
+  },
+  {
+    "slug": "cover-letter-star",
+    "date": "2026-10-27",
+    "corner": "Before/After",
+    "title": "자소서 경험, 나열 말고 장면으로",
+    "desc": "경험을 상황·행동·결과로 바꾸는 프롬프트",
+    "count": 4
   }
 ]

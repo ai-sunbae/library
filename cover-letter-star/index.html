@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>자소서 경험 정리 프롬프트 4개 · AI 선배</title>
+<meta name="description" content="나열만 한 자소서 문단을 상황·행동·결과로 바꾸는 프롬프트 4개">
+<meta property="og:title" content="자소서 경험 정리 프롬프트 4개 · AI 선배">
+<meta property="og:description" content="나열만 한 자소서 문단을 상황·행동·결과로 바꾸는 프롬프트 4개">
+<meta property="og:locale" content="ko_KR">
+<meta name="theme-color" content="#0F1B3D">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --navy:#0F1B3D; --navy2:#1A2A57; --lime:#C8F542;
+    --bg:#F4F6FA; --card:#FFFFFF; --text:#0F1B3D; --sub:#5A6480;
+    --box:#EEF0F4; --line:#DDE1EA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+  header{background:var(--navy);color:#fff;padding:36px 20px 32px}
+  .wrap{max-width:640px;margin:0 auto}
+  .tag{display:inline-block;background:var(--lime);color:var(--navy);font-weight:800;font-size:13px;
+    padding:4px 10px;border-radius:6px;margin-bottom:14px}
+  h1{font-size:28px;font-weight:900;line-height:1.3;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--lime)}
+  header p{margin-top:10px;color:#C9D1E6;font-size:15px}
+  .how{background:var(--navy2);border-radius:12px;padding:14px 16px;margin-top:20px;font-size:14px;color:#E3E8F5}
+  .how b{color:var(--lime)}
+  main{padding:24px 16px 40px}
+  .card{background:var(--card);border-radius:16px;padding:20px 18px;margin-bottom:16px;
+    box-shadow:0 1px 3px rgba(15,27,61,.06)}
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--navy);color:var(--lime);
+    font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center}
+  h2{font-size:18px;font-weight:800;letter-spacing:-.3px}
+  pre{background:var(--box);border-radius:10px;padding:14px;font-family:inherit;font-size:15px;
+    white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;color:var(--text)}
+  .ph{background:var(--lime);color:var(--navy);font-weight:700;border-radius:4px;padding:0 3px}
+  .copy{margin-top:12px;width:100%;border:0;border-radius:10px;padding:14px;font-family:inherit;
+    font-size:16px;font-weight:800;background:var(--navy);color:#fff;cursor:pointer;transition:background .15s}
+  .copy:active{transform:scale(.99)}
+  .copy.done{background:var(--lime);color:var(--navy)}
+  .tip{font-size:14px;color:var(--sub);margin-top:8px}
+  footer{text-align:center;padding:8px 20px 48px;color:var(--sub);font-size:14px}
+  .follow{display:inline-block;margin-top:12px;background:var(--navy);color:var(--lime);text-decoration:none;
+    font-weight:800;padding:12px 22px;border-radius:999px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="tag">AI 선배 · 자소서 경험 편</span>
+    <h1>자소서 경험,<br>나열 말고 <em>장면</em>으로</h1>
+    <p>빠진 부분 질문받기부터 원래 문단과 대조까지.</p>
+    <div class="how"><b>쓰는 법</b> — 복사 버튼을 누르고 ChatGPT·클로드에 붙여넣은 뒤, <span class="ph">[ ]</span> 부분만 내 내용으로 바꾸세요.</div>
+  </div>
+</header>
+
+<main class="wrap" id="list"></main>
+
+<footer>
+  매일 아침, 퇴근 당겨주는 AI 활용법<br>
+  <a class="follow" href="https://www.instagram.com/ai.sunbae/">@ai.sunbae 팔로우</a>
+</footer>
+
+<script>
+const prompts = [
+  { title: "빠진 부분, 질문부터 받기", text:
+`아래 자소서 문단에서
+경험 하나를 골라
+상황·행동·결과 중
+빠진 부분을 질문해줘.
+질문만 하고,
+답은 지어내지 마.
+문단: [내 문단 붙여넣기]` },
+  { title: "상황·행동·결과 순서로 다시 쓰기", text:
+`아래 내 경험 메모로
+자소서 문단을 다시 써줘.
+순서: 상황 → 내 행동 → 결과
+메모에 없는 내용·수치·성과는
+지어내지 마.
+분량: [글자 수, 없으면 '없음']
+메모: [질문에 내가 답한 내용]` },
+  { title: "'우리' 말고 '내가' 한 일 찾기", text:
+`아래 문단에서 팀이 한 일과
+내가 직접 한 일을 나눠줘.
+내 역할이 흐릿한 문장은
+표시만 하고, 내가 확인할
+질문을 붙여줘.
+문단: [고친 문단 붙여넣기]` },
+  { title: "고친 문단, 원래 문단과 대조", text:
+`아래 두 문단을 비교해서
+고친 문단에만 있는
+사실·숫자·성과를
+모두 찾아 표로 보여줘.
+원래: [처음 문단]
+고친: [고친 문단]` }
+];
+
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const list = document.getElementById('list');
+
+prompts.forEach((p, i) => {
+  const card = document.createElement('section');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-head"><div class="num">#${i+1}</div><h2>${esc(p.title)}</h2></div>
+    <pre>${esc(p.text).replace(/\[[^\]]+\]/g, m => `<span class="ph">${m}</span>`)}</pre>
+    <button class="copy" type="button">복사하기</button>`;
+  card.querySelector('.copy').addEventListener('click', e => copy(p.text, e.currentTarget));
+  list.appendChild(card);
+});
+
+async function copy(text, btn){
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch(_) {}
+  if (!ok) {
+    // 인스타그램 앱 내 브라우저 등 clipboard API가 막힌 환경용
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, text.length);
+    try { ok = document.execCommand('copy'); } catch(_) {}
+    document.body.removeChild(ta);
+  }
+  btn.textContent = ok ? '복사됐어요 ✓' : '길게 눌러 직접 복사해주세요';
+  btn.classList.toggle('done', ok);
+  setTimeout(() => { btn.textContent = '복사하기'; btn.classList.remove('done'); }, 1800);
+}
+</script>
+</body>
+</html>
