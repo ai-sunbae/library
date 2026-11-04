@@ -150,5 +150,13 @@
     "title": "꼬리 질문, AI랑 먼저 맞아보기",
     "desc": "AI 면접관과 꼬리 질문 연습 프롬프트",
     "count": 5
+  },
+  {
+    "slug": "report-email",
+    "date": "2026-11-05",
+    "corner": "Before/After",
+    "title": "보고 메일, 결론은 첫 줄에",
+    "desc": "결론부터 쓰는 보고 메일 프롬프트",
+    "count": 4
   }
 ]
