@@ -214,5 +214,13 @@
     "title": "다른 부서에 부탁할 땐 복붙으로",
     "desc": "협조 요청 메일 쓰는 프롬프트",
     "count": 5
+  },
+  {
+    "slug": "one-page-proposal",
+    "date": "2026-11-13",
+    "corner": "Before/After",
+    "title": "장황한 기획안, 한 장으로",
+    "desc": "기획안을 한 페이지로 요약하는 프롬프트",
+    "count": 5
   }
 ]
