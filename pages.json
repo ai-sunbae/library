@@ -262,5 +262,13 @@
     "title": "면접 끝나고 복기는 복붙으로",
     "desc": "면접 질문·답 정리부터 다음 준비까지",
     "count": 5
+  },
+  {
+    "slug": "sentence-trim",
+    "date": "2026-11-19",
+    "corner": "Before/After",
+    "title": "보고서 문장, 짧게 끊기",
+    "desc": "긴 보고서 문장 다듬는 프롬프트",
+    "count": 5
   }
 ]
